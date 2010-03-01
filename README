@@ -1,0 +1,26 @@
+Wildcard
+========
+
+A ruby library to expand wildcard string like shell command line
+
+
+Usage
+=====
+
+  Wildcard.expand("foo.{rb,yml}")
+  => ["foo.rb", "foo.yml"]
+
+  Wildcard.expand("file0{08..11}.dat")
+  => ["file008.dat", "file009.dat", "file010.dat", "file011.dat"]
+
+
+  # same as "% wget http://.../dance{01..16}.flv" on shell
+  Wildcard.expand("http://.../dance{01..16}.flv").each do |url|
+    system("wget #{url}")
+  end
+
+
+Author
+======
+
+  maiha@wota.jp
